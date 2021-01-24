@@ -1,0 +1,29 @@
+####################################
+# MailToDiscord Configuration File #
+#          Author: NAFU_at         #
+#         Version: v1.0            #
+####################################
+authorization:
+  mailServer:
+    address: mail@example.com
+    smtp:
+      serverAddress: smtp.example.com
+      port: 25
+      ssl: STARTTLS
+      username: username
+      password: password
+    imap:
+      serverAddress: imap.example.com
+      port: 143
+      ssl: STARTTLS
+      username: uername
+      password: password
+
+  discord:
+    accessToken: discord token
+    guildId: 123456789
+    receiveChannel: 123456798
+    sendChannel: 123456798
+
+logLevel: INFO
+debugMode: false

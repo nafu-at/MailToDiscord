@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+}
+
+group 'page.nafuchoco'
+version '1.0.0-SNAPSHOT'
+
+jar {
+    manifest {
+        attributes("Main-Class": "page.nafuchoco.mtd.Main",
+                "Implementation-Title": "MailToDiscord",
+                "Implementation-Version": getArchiveVersion().get()
+        )
+    }
+}
+shadowJar {
+    archiveFileName.set(rootProject.name + '.' + archiveExtension.get())
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    implementation 'org.slf4j:slf4j-api:1.7.30'
+    implementation 'ch.qos.logback:logback-core:1.2.3'
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
+    compileOnly 'org.projectlombok:lombok:1.18.14'
+    annotationProcessor 'org.projectlombok:lombok:1.18.14'
+
+    implementation 'com.sun.mail:jakarta.mail:2.0.0'
+    //implementation 'com.sun.mail:javax.mail:1.6.2'
+    implementation 'com.squareup.okhttp3:okhttp:4.8.1'
+    implementation 'net.dv8tion:JDA:4.2.0_227'
+
+    // Parser
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.11.3'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.3'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.11.3'
+
+    // Commons Library
+    implementation 'commons-io:commons-io:2.8.0'
+    implementation 'commons-codec:commons-codec:1.15'
+    implementation 'org.apache.commons:commons-lang3:3.11'
+
+}
